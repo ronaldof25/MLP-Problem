@@ -8,9 +8,9 @@
 int n;
 vector<vector<double>> dist;
 
-Subsequence Subsequence::Concatenate(Subsequence &sigma_1, Subsequence &sigma_2) {
+inline Subsequence Subsequence::Concatenate(Subsequence &sigma_1, Subsequence &sigma_2) {
     Subsequence sigma;
-    double temp = dist[sigma_1.last][sigma_2.first];
+    double temp = dist[sigma_1x.last][sigma_2.first];
     
     sigma.W = sigma_1.W + sigma_2.W;
     sigma.T = sigma_1.T + temp + sigma_2.T;
