@@ -48,17 +48,17 @@ vector <int> nosRestantes(const Solution& s) {
 Solution Construcao() {
     Solution s;
     s.tour.push_back(0);
-    vector <int> CL = nosRestantes(s);
-    while (!CL.empty()) {
-        int r = s.tour.back();
-        sort(CL.begin(), CL.end(), [&](int a, int b) {
+    vector <int> CL = nosRestantes(s); //linha 4 5
+    double alpha = (rand() % 26) / 100.0; //linha 2
+    while (!CL.empty()) { //linha 7
+        int r = s.tour.back(); 
+        sort(CL.begin(), CL.end(), [&](int a, int b) { //linha 8
             return dist[r][a] < dist[r][b];
         });
-        double alpha = (rand() % 26) / 100.0;
-        int limit = max(1, ((int) ceil(alpha*CL.size())));
-        int selecionado = rand() % limit;
-        s.tour.push_back(CL[selecionado]);
-        CL.erase(CL.begin() + selecionado);
+        int limit = max(1, ((int) ceil(alpha*CL.size()))); //linha 9
+        int selecionado = rand() % limit; //linha 9
+        s.tour.push_back(CL[selecionado]); //linha 10
+        CL.erase(CL.begin() + selecionado); //linha 12
     }
     s.tour.push_back(0);
     s.cost = calculateCost(s.tour);
